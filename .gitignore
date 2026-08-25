@@ -1,0 +1,16 @@
+# Node
+app/node_modules/
+app/build/
+app/.yarn/
+app/.yarnrc.yml
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+
+# Local files
+.DS_Store
+.vscode/
