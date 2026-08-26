@@ -40,37 +40,8 @@ CI/CD is handled through separate GitHub Actions workflows. GitHub authenticates
 
 ## Architecture
 
-The application runs on ECS Fargate behind an Application Load Balancer. Route 53 points the `tm.nabilstack.com` subdomain to the ALB, while ACM provides the TLS certificate used for HTTPS.
+![Architectural diagram](./images/Architectural-diagram.png)
 
-The ECS tasks run in public subnets, but inbound traffic to the container is restricted by the ECS security group so that port 80 can only be reached from the ALB.
-
-```mermaid
-flowchart TD
-    User[User] -->|HTTPS| R53[Route 53<br/>tm.nabilstack.com]
-    R53 --> ALB[Application Load Balancer]
-
-    ACM[AWS Certificate Manager] -->|TLS Certificate| ALB
-
-    subgraph VPC[AWS VPC]
-        subgraph PublicSubnets[Public Subnets]
-            ALB
-            ECS[ECS Fargate Service<br/>ARM64 Task]
-        end
-
-        ALB -->|HTTP :80| ECS
-    end
-
-    ECR[Amazon ECR] -->|Container Image| ECS
-    CW[CloudWatch Logs] <-->|Container Logs| ECS
-
-    GitHub[GitHub Actions] -->|OIDC| AWS[AWS IAM Role]
-    AWS --> ECR
-    AWS --> ECS
-    AWS --> Terraform[Terraform]
-
-    Terraform --> VPC
-    Terraform --> S3[S3 Remote State]
-```
 
 ### Traffic flow
 
