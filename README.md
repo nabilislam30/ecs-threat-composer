@@ -1,20 +1,14 @@
-# Threat Composer on AWS ECS Fargate
+# ECS - Threat Composer
 
 ![AWS](https://img.shields.io/badge/AWS-ECS%20Fargate-orange)
-![Terraform](https://img.shields.io/badge/Infrastructure-Terraform-purple)
-![Docker](https://img.shields.io/badge/Container-Docker-blue)
-![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-blue)
-![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-success)
+![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)
+![Docker](https://img.shields.io/badge/Docker-ARM64-blue)
+![GitHub Actions](https://img.shields.io/badge/Deployment-GitHub%20Actions-blue)
+![OIDC](https://img.shields.io/badge/Auth-OIDC-green)
 
 ## Project Overview
 
-This project demonstrates the end-to-end deployment of the Threat Composer application on AWS using Docker, ECS Fargate, Terraform and GitHub Actions.
-
-The infrastructure was first deployed manually through the AWS Console to understand how the individual services interact. Once the application was successfully running over HTTPS, the manually created resources were removed and rebuilt using modular Terraform.
-
-The final deployment uses Amazon ECR for container images, ECS Fargate for running the application, an Application Load Balancer for traffic routing, Route 53 for DNS and AWS Certificate Manager for HTTPS. Terraform state is stored remotely in Amazon S3.
-
-CI/CD is handled through separate GitHub Actions workflows. GitHub authenticates to AWS using OIDC rather than static access keys. Application changes automatically build an ARM64 Docker image, tag it with the Git commit SHA, push it to ECR, deploy it to ECS and verify the deployment using the application's `/health` endpoint.
+This project involved containerising and deploying the Threat Composer application to AWS using Docker, ECS Fargate, Terraform and GitHub Actions. I first built the infrastructure manually in AWS to understand how the services worked together, then removed it and rebuilt the same setup using modular Terraform. The final deployment uses ECR for container images, ECS Fargate to run the application, an Application Load Balancer for traffic routing, Route 53 for DNS, ACM for HTTPS and S3 for remote Terraform state. GitHub Actions handles both infrastructure and application deployment using OIDC. Application changes are built into ARM64 Docker images, pushed to ECR, deployed to ECS and checked through the /health endpoint.
 
 ## Live Application
 
