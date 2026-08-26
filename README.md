@@ -328,5 +328,3 @@ A few issues came up during the project which helped me understand the deploymen
 - ACM validation took longer than expected due to Route 53 hosted zone issues, so I had to troubleshoot DNS records and certificate validation.
 - Building an ARM64 image in GitHub Actions was initially very slow because of emulation. I changed the Docker build so the build stage could run natively while still producing an ARM64 runtime image.
 - The GitHub Actions build also hit a Yarn network timeout, which I fixed by increasing the Yarn network timeout.
-- Terraform required ECR to exist and contain an image before ECS could start successfully, so I handled the initial ECR bootstrap separately.
-- Using OIDC with GitHub Actions gave me a better understanding of how AWS can be accessed securely without storing long-lived credentials.
