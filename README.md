@@ -51,8 +51,8 @@ CI/CD is handled through separate GitHub Actions workflows. GitHub authenticates
 4. Traffic is forwarded to the ECS Fargate service on port 80.
 5. The container image is pulled from Amazon ECR.
 6. Application logs are sent to CloudWatch Logs.
-
-Terraform manages the AWS infrastructure, while its state is stored remotely in S3. GitHub Actions uses OIDC to authenticate to AWS for both infrastructure changes and application deployments.
+7. Terraform manages the AWS infrastructure, while its state is stored remotely in S3. 
+8. GitHub Actions uses OIDC to authenticate to AWS for both infrastructure changes and application deployments.
 
 ## Technology Stack
 
