@@ -6,6 +6,10 @@
 ![GitHub Actions](https://img.shields.io/badge/Deployment-GitHub%20Actions-blue)
 ![OIDC](https://img.shields.io/badge/Auth-OIDC-green)
 
+[![Terraform](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/terraform.yml/badge.svg?branch=main&event=push)](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/terraform.yml)
+
+[![ECS Deploy](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/deploy.yml/badge.svg?branch=main&event=push)](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/deploy.yml)
+
 ## Project Overview
 
 This project involved containerising and deploying the Threat Composer application to AWS using Docker, ECS Fargate, Terraform and GitHub Actions. I first built the infrastructure manually in AWS to understand how the services worked together, then removed it and rebuilt the same setup using modular Terraform. The final deployment uses ECR for container images, ECS Fargate to run the application, an Application Load Balancer for traffic routing, Route 53 for DNS, ACM for HTTPS and S3 for remote Terraform state. GitHub Actions handles both infrastructure and application deployment using OIDC. Application changes are built into ARM64 Docker images, pushed to ECR, deployed to ECS and checked through the /health endpoint.
