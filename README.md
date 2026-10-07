@@ -6,9 +6,6 @@
 ![GitHub Actions](https://img.shields.io/badge/Deployment-GitHub%20Actions-blue)
 ![OIDC](https://img.shields.io/badge/Auth-OIDC-green)
 
-[![Terraform](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/terraform.yml/badge.svg?branch=main&event=push)](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/terraform.yml)
-
-[![ECS Deploy](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/deploy.yml/badge.svg?branch=main&event=push)](https://github.com/nabilislam30/ecs-threat-composer/actions/workflows/deploy.yml)
 
 ## Project Overview
 
